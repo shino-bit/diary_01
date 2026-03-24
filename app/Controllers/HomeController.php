@@ -2,15 +2,16 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use Core\Database;
 
 class HomeController extends Controller {
     public function index() {
-        try {
-            $db = Database::getInstance()->getConnection();
-            echo "<h2>База даних працює</h2>";
-        } catch (\Exception $e) {
-            echo "<h2>Помилка бази даних: " . $e->getMessage() . "</h2>";
+        if (isset($_SESSION['user_id'])) {
+            echo "<h2>Вітаємо, " . $_SESSION['username'] . "!</h2>";
+            echo "<p>Твій статус: " . $_SESSION['role'] . "</p>";
+            echo "<a href='/auth/logout'>Вийти</a>";
+        } else {
+            echo "<h2>Ви не авторизовані.</h2>";
+            echo "<a href='/auth/login'>Увійти</a> або <a href='/auth/register'>Реєстрація</a>";
         }
     }
 }
