@@ -25,4 +25,10 @@ class User extends Model {
         $stmt->execute([':email' => $email]);
         return $stmt->fetch();
     }
+
+    public function getAll() {
+        $sql = "SELECT id, username, email, role, created_at FROM users ORDER BY created_at DESC";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll();
+    }
 }

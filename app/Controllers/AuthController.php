@@ -7,6 +7,7 @@ use App\Models\User;
 class AuthController extends Controller {
 
     public function register() {
+        // Тепер змінна 'title' потрапить у header.php через метод render
         $this->render('auth/register', ['title' => 'Реєстрація']);
     }
 
@@ -21,9 +22,11 @@ class AuthController extends Controller {
             ];
 
             if ($userModel->create($userData)) {
-                echo "Користувача успішно створено! <a href='/auth/login'>Увійти</a>";
+                // Краще відразу редиректнути на логін
+                header('Location: /auth/login');
+                exit;
             } else {
-                echo "Помилка при реєстрації.";
+                echo "Помилка при реєстрації. <a href='/auth/register'>Спробувати ще раз</a>";
             }
         }
     }

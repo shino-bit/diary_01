@@ -1,37 +1,42 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title><?php echo $title; ?></title>
-</head>
-<body>
-    <header>
-        <span>Ви увійшли як: <b><?php echo $_SESSION['username']; ?></b></span> | 
-        <a href="/auth/logout">Вийти</a>
-    </header>
+<?php require_once __DIR__ . '/../header.php'; ?>
 
-    <h1>Мій Щоденник</h1>
-    <a href="/diary/create" style="background: green; color: white; padding: 10px; text-decoration: none; border-radius: 5px;">+ Додати запис</a>
+<div class="diary-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h1 style="margin: 0;">Мої записи</h1>
+        <a href="/diary/create" class="btn btn-success" style="text-decoration: none;">+ Новий запис</a>
+    </div>
 
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 30px;">
 
     <?php if (empty($entries)): ?>
-        <p>У вас ще немає жодного запису.</p>
+        <div style="text-align: center; padding: 40px; color: #888;">
+            <p style="font-size: 18px;">У вас ще немає жодного запису.</p>
+            <a href="/diary/create" style="color: var(--primary);">Напишіть свою першу думку прямо зараз!</a>
+        </div>
     <?php else: ?>
-        <?php foreach ($entries as $entry): ?>
-            <div style="border: 1px solid #ccc; margin-bottom: 20px; padding: 15px;">
-                <h3><?php echo htmlspecialchars($entry['title']); ?></h3>
-                <small>Дата: <?php echo $entry['created_at']; ?></small>
-                <p><?php echo nl2br(htmlspecialchars($entry['content'])); ?></p>
-                
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee;">
-                    <a href="/diary/edit/<?php echo $entry['id']; ?>" style="color: blue; text-decoration: none;">✏️ Редагувати</a> | 
-                    <a href="/diary/destroy/<?php echo $entry['id']; ?>" 
-                       style="color: red; text-decoration: none;" 
-                       onclick="return confirm('Ви впевнені, що хочете видалити цей запис?')">🗑️ Видалити</a>
+        <div class="entries-list">
+            <?php foreach ($entries as $entry): ?>
+                <div class="entry-card" style="border: 1px solid #eee; border-radius: 12px; padding: 20px; margin-bottom: 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <h3 style="margin-top: 0; color: #333;"><?php echo htmlspecialchars($entry['title']); ?></h3>
+                        <small style="color: #999;"><?php echo date('d.m.Y H:i', strtotime($entry['created_at'])); ?></small>
+                    </div>
+                    
+                    <div style="margin: 15px 0; line-height: 1.7; color: #555;">
+                        <?php echo nl2br(htmlspecialchars($entry['content'])); ?>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #f9f9f9; display: flex; gap: 15px;">
+                        <a href="/diary/edit/<?php echo $entry['id']; ?>" style="color: var(--primary); text-decoration: none; font-weight: 500; font-size: 14px;">Редагувати</a>
+                        <a href="/diary/destroy/<?php echo $entry['id']; ?>" 
+                           style="color: var(--danger); text-decoration: none; font-weight: 500; font-size: 14px;" 
+                           onclick="return confirm('Видалити цей запис назавжди?')">Видалити</a>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
-</body>
+</div>
+
+</div> </body>
 </html>

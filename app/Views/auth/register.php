@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title><?php echo $title; ?></title>
-</head>
-<body>
-    <h1>Створити акаунт</h1>
+<?php require_once '../app/Views/header.php'; ?>
+
+<div class="auth-card">
+    <h2>Створити акаунт</h2>
     <form action="/auth/store" method="POST">
-        <input type="text" name="username" placeholder="Нікнейм" required><br><br>
-        <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="password" name="password" placeholder="Пароль" required><br><br>
-        <button type="submit">Зареєструватися</button>
+        <label>Ваш нікнейм</label>
+        <input type="text" name="username" placeholder="Наприклад: shino-bit" required>
+        
+        <label>Email адреса</label>
+        <input type="email" name="email" placeholder="example@mail.com" required>
+        
+        <label>Пароль</label>
+        <input type="password" name="password" placeholder="Мінімум 6 символів" required>
+        
+        <button type="submit" class="btn btn-success">Зареєструватися</button>
     </form>
-</body>
-</html>
+    
+    <div class="auth-footer">
+        Вже маєте акаунт? <a href="/auth/login">Увійти</a>
+    </div>
+</div>

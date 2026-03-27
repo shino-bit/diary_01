@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title><?php echo $title; ?></title>
-</head>
-<body>
-    <h1>Вхід до щоденника</h1>
+<?php require_once '../app/Views/header.php'; ?>
+
+<div class="auth-card">
+    <h2>Вхід у щоденник</h2>
     <form action="/auth/auth" method="POST">
-        <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="password" name="password" placeholder="Пароль" required><br><br>
-        <button type="submit">Увійти</button>
+        <label>Електронна пошта</label>
+        <input type="email" name="email" placeholder="Введіть ваш email" required>
+        
+        <label>Пароль</label>
+        <input type="password" name="password" placeholder="Введіть пароль" required>
+        
+        <button type="submit" class="btn btn-primary">Увійти в систему</button>
     </form>
-</body>
-</html>
+    
+    <div class="auth-footer">
+        Ще не зареєстровані? <a href="/auth/register">Створити акаунт</a>
+    </div>
+</div>
