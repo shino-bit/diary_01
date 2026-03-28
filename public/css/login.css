@@ -1,0 +1,100 @@
+/* Контейнер для центрування форми */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Щоб форма була по центру екрана */
+}
+
+/* Картка авторизації */
+.auth-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2d3436;
+    font-size: 1.8rem;
+}
+
+/* Повідомлення про помилку */
+.auth-error {
+    background-color: #ffeaa7;
+    color: #d63031;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 1px solid #fab1a0;
+}
+
+/* Елементи форми */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+    border-color: #0984e3;
+    outline: none;
+}
+
+/* Кнопка входу */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #0a73c5;
+    transform: translateY(-1px);
+}
+
+/* Футер картки */
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+.auth-footer a {
+    color: #0984e3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}

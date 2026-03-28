@@ -1,35 +1,47 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 
-<div class="admin-panel">
-    <h1>Панель адміністратора</h1>
-    <p>Керування користувачами системи</p>
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>Панель адміністратора</h1>
+        <p class="admin-subtitle">Управління користувачами системи</p>
+    </div>
 
-    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-        <thead>
-            <tr style="background: #333; color: #fff; text-align: left;">
-                <th style="padding: 15px;">ID</th>
-                <th style="padding: 15px;">Нікнейм</th>
-                <th style="padding: 15px;">Email</th>
-                <th style="padding: 15px;">Роль</th>
-                <th style="padding: 15px;">Дата реєстрації</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
-                <tr style="border-bottom: 1px solid #eee;">
-                    <td style="padding: 15px;"><?php echo $user['id']; ?></td>
-                    <td style="padding: 15px;"><strong><?php echo htmlspecialchars($user['username']); ?></strong></td>
-                    <td style="padding: 15px;"><?php echo htmlspecialchars($user['email']); ?></td>
-                    <td style="padding: 15px;">
-                        <span style="padding: 5px 10px; border-radius: 4px; font-size: 12px; background: <?php echo $user['role'] === 'admin' ? '#ffeaa7' : '#dfe6e9'; ?>;">
-                            <?php echo $user['role']; ?>
-                        </span>
-                    </td>
-                    <td style="padding: 15px;"><?php echo $user['created_at']; ?></td>
+    <div class="admin-card">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Логін</th>
+                    <th>Роль</th>
+                    <th>Дії</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php if (!empty($users)): ?>
+                    <?php foreach ($users as $user): ?>
+                        <tr>
+                            <td>#<?php echo $user['id']; ?></td>
+                            <td class="user-name"><?php echo htmlspecialchars($user['username']); ?></td>
+                            <td>
+                                <span class="role-badge <?php echo ($user['role'] === 'admin') ? 'role-admin' : 'role-user'; ?>">
+                                    <?php echo htmlspecialchars($user['role']); ?>
+                                </span>
+                            </td>
+                            <td class="admin-actions">
+                                <form action="/admin/delete/<?php echo $user['id']; ?>" method="POST" onsubmit="return confirm('Видалити цього користувача?')">
+                                    <button type="submit" class="btn-delete-user">Видалити</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4" style="text-align: center; padding: 20px;">Користувачів не знайдено</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 </div> </body>

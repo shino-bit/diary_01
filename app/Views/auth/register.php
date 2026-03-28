@@ -1,21 +1,37 @@
-<?php require_once '../app/Views/header.php'; ?>
+<?php require_once __DIR__ . '/../header.php'; ?>
 
-<div class="auth-card">
-    <h2>Створити акаунт</h2>
-    <form action="/auth/store" method="POST">
-        <label>Ваш нікнейм</label>
-        <input type="text" name="username" placeholder="Наприклад: shino-bit" required>
+<div class="auth-container">
+    <div class="auth-card register-card">
+        <h2 class="auth-title">Створити акаунт</h2>
         
-        <label>Email адреса</label>
-        <input type="email" name="email" placeholder="example@mail.com" required>
+        <?php if (isset($error)): ?>
+            <div class="auth-error">
+                <?php echo $error; ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="/auth/store" method="POST" class="auth-form">
+        <div class="form-group">
+            <label for="username">Логін</label>
+            <input type="text" id="username" name="username" placeholder="Придумайте логін" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Електронна пошта</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" placeholder="Мінімум 6 символів" required>
+        </div>
         
-        <label>Пароль</label>
-        <input type="password" name="password" placeholder="Мінімум 6 символів" required>
-        
-        <button type="submit" class="btn btn-success">Зареєструватися</button>
-    </form>
-    
-    <div class="auth-footer">
-        Вже маєте акаунт? <a href="/auth/login">Увійти</a>
+        </form>
+        <div class="auth-footer">
+            <p>Аккаунт присутній <a href="/auth/login">Увійти</a></p>
+        </div>
     </div>
 </div>
+
+</div> </body>
+</html>

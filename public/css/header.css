@@ -1,0 +1,62 @@
+/* Базові налаштування для всього сайту */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Стилі шапки */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header-logo strong {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Навігація */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+.user-welcome {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Специфічні посилання */
+.nav-link-admin {
+    color: #EE1515 !important; /* Твій червоний колір */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.nav-link-logout {
+    color: #ff7675 !important; /* Твій колір для виходу */
+}
+
+/* Головний контейнер для контенту */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}

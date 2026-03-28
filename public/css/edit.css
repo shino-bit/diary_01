@@ -1,0 +1,90 @@
+/* Контейнер форми */
+.diary-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.diary-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 700px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.diary-title {
+    margin-bottom: 25px;
+    color: #2d3436;
+    border-bottom: 2px solid #f1f2f6;
+    padding-bottom: 10px;
+}
+
+/* Поля форми */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Блок кнопок */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-update {
+    background-color: #0984e3; /* Синій колір для оновлення */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 2; /* Робимо кнопку оновлення ширшою */
+    transition: background 0.2s;
+}
+
+.btn-update:hover {
+    background-color: #0a73c5;
+}
+
+.btn-cancel {
+    background-color: #dfe6e9;
+    color: #2d3436;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    transition: background 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #b2bec3;
+}

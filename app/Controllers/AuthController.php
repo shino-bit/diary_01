@@ -6,8 +6,14 @@ use App\Models\User;
 
 class AuthController extends Controller {
 
+    /**
+     * Дефолтний метод, який викликає роутер, якщо не вказано дію.
+     */
+    public function index() {
+        $this->login();
+    }
+
     public function register() {
-        // Тепер змінна 'title' потрапить у header.php через метод render
         $this->render('auth/register', ['title' => 'Реєстрація']);
     }
 
@@ -22,11 +28,14 @@ class AuthController extends Controller {
             ];
 
             if ($userModel->create($userData)) {
-                // Краще відразу редиректнути на логін
                 header('Location: /auth/login');
                 exit;
             } else {
-                echo "Помилка при реєстрації. <a href='/auth/register'>Спробувати ще раз</a>";
+                // Виводимо помилку в інтерфейс, а не просто текстом
+                $this->render('auth/register', [
+                    'title' => 'Реєстрація',
+                    'error' => 'Помилка при реєстрації. Можливо, цей Email вже зайнятий.'
+                ]);
             }
         }
     }
@@ -35,7 +44,10 @@ class AuthController extends Controller {
         $this->render('auth/login', ['title' => 'Вхід']);
     }
 
-    public function auth() {
+    /**
+     * Перейменовуємо 'auth' на 'authenticate', щоб збігалося з URL /auth/authenticate
+     */
+    public function authenticate() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userModel = new User();
             $user = $userModel->findByEmail($_POST['email']);
@@ -45,10 +57,14 @@ class AuthController extends Controller {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                header('Location: /'); 
+                header('Location: /diary/index'); 
                 exit;
             } else {
-                echo "Невірний email або пароль! <a href='/auth/login'>Спробувати ще раз</a>";
+                // Виводимо помилку через рендер у наш CSS-блок
+                $this->render('auth/login', [
+                    'title' => 'Вхід',
+                    'error' => 'Невірний email або пароль!'
+                ]);
             }
         }
     }

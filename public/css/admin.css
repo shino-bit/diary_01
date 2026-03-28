@@ -1,0 +1,82 @@
+/* Заголовок адмінки */
+.admin-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #dfe6e9;
+    padding-bottom: 15px;
+}
+
+.admin-subtitle {
+    color: #636e72;
+    font-size: 1rem;
+}
+
+/* Картка-контейнер для таблиці */
+.admin-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow-x: auto; /* Для мобільних пристроїв */
+}
+
+/* Стилізація таблиці */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #f8f9fa;
+    padding: 15px;
+    color: #2d3436;
+    font-weight: bold;
+    border-bottom: 2px solid #eee;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f2f6;
+    vertical-align: middle;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #2d3436;
+}
+
+/* Бейджи ролей */
+.role-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.role-admin {
+    background-color: #ffeaa7;
+    color: #d63031; /* Червоний текст для адміна */
+}
+
+.role-user {
+    background-color: #dfe6e9;
+    color: #2d3436;
+}
+
+/* Дії */
+.btn-delete-user {
+    background: none;
+    border: 1px solid #ff7675;
+    color: #ff7675;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-delete-user:hover {
+    background-color: #ff7675;
+    color: white;
+}
