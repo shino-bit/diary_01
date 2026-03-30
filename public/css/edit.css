@@ -1,4 +1,3 @@
-/* Контейнер форми */
 .diary-container {
     display: flex;
     justify-content: center;
@@ -29,7 +28,6 @@
     padding-bottom: 10px;
 }
 
-/* Поля форми */
 .form-group {
     margin-bottom: 20px;
 }
@@ -58,14 +56,14 @@ input[type="text"], textarea {
 }
 
 .btn-update {
-    background-color: #0984e3; /* Синій колір для оновлення */
+    background-color: #0984e3; 
     color: white;
     border: none;
     padding: 15px 25px;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    flex: 2; /* Робимо кнопку оновлення ширшою */
+    flex: 2; 
     transition: background 0.2s;
 }
 

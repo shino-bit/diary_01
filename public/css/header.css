@@ -1,11 +1,9 @@
-/* Базові налаштування для всього сайту */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
 
-/* Стилі шапки */
 header {
     background-color: #333;
     color: white;
@@ -21,7 +19,6 @@ header {
     letter-spacing: 1px;
 }
 
-/* Навігація */
 nav {
     display: flex;
     align-items: center;
@@ -43,18 +40,16 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* Специфічні посилання */
 .nav-link-admin {
-    color: #EE1515 !important; /* Твій червоний колір */
+    color: #EE1515 !important; 
     font-weight: bold;
     margin-right: 10px;
 }
 
 .nav-link-logout {
-    color: #ff7675 !important; /* Твій колір для виходу */
+    color: #ff7675 !important; 
 }
 
-/* Головний контейнер для контенту */
 .container {
     max-width: 1200px;
     margin: 20px auto;

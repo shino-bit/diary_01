@@ -1,12 +1,10 @@
-/* Контейнер для центрування форми */
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh; /* Щоб форма була по центру екрана */
+    min-height: 70vh; 
 }
 
-/* Картка авторизації */
 .auth-card {
     background: #fff;
     padding: 40px;
@@ -23,7 +21,6 @@
     font-size: 1.8rem;
 }
 
-/* Повідомлення про помилку */
 .auth-error {
     background-color: #ffeaa7;
     color: #d63031;
@@ -35,7 +32,6 @@
     border: 1px solid #fab1a0;
 }
 
-/* Елементи форми */
 .form-group {
     margin-bottom: 20px;
 }
@@ -62,7 +58,6 @@
     outline: none;
 }
 
-/* Кнопка входу */
 .btn-login {
     width: 100%;
     padding: 14px;
@@ -81,7 +76,6 @@
     transform: translateY(-1px);
 }
 
-/* Футер картки */
 .auth-footer {
     margin-top: 25px;
     text-align: center;
